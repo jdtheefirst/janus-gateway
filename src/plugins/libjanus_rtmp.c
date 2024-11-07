@@ -18,9 +18,9 @@
  * Author: Aleksey Gureev <agureiev@shakuro.com>
  */
 
-#include "/usr/local/janus/plugin.h"
-#include "/usr/local/janus/record.h"
-#include "/usr/local/janus/utils.h"
+#include "./plugin.h"
+#include "../record.h"
+#include "../utils.h"
 
 #include <errno.h>
 #include <gst/gst.h>
