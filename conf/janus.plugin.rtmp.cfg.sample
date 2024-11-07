@@ -1,4 +1,4 @@
 [rtmp]
 enabled = yes
 listen = 0.0.0.0
-port = 1935
+port = 8088 8089 8188 8189
