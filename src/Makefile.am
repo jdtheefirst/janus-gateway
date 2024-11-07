@@ -233,6 +233,17 @@ conf_DATA += ../conf/janus.transport.websockets.jcfg.sample
 EXTRA_DIST += ../conf/janus.transport.websockets.jcfg.sample
 endif
 
+if ENABLE_PLUGIN_RTMP
+plugin_LTLIBRARIES += plugins/libjanus_rtmp.la
+plugins_libjanus_rtmp_la_SOURCES = plugins/janus_rtmp.c  # Your plugin source file
+plugins_libjanus_rtmp_la_CFLAGS = $(plugins_cflags) $(RTMP_CFLAGS)  # RTMP-specific flags
+plugins_libjanus_rtmp_la_LDFLAGS = $(plugins_ldflags) $(RTMP_LDFLAGS)  # RTMP-specific link flags
+plugins_libjanus_rtmp_la_LIBADD = $(plugins_libadd) $(RTMP_LIBS)  # RTMP libraries to link
+conf_DATA += ../conf/janus.plugin.rtmp.jcfg.sample  # Configuration file
+EXTRA_DIST += ../conf/janus.plugin.rtmp.jcfg.sample  # Include config for distribution
+endif
+
+
 if ENABLE_RABBITMQ
 transport_LTLIBRARIES += transports/libjanus_rabbitmq.la
 transports_libjanus_rabbitmq_la_SOURCES = transports/janus_rabbitmq.c
