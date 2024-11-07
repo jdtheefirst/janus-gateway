@@ -395,11 +395,11 @@ plugins_libadd = \
 	$(NULL)
 
 if ENABLE_PLUGIN_RTMP
-plugin_LTLIBRARIES += plugins/libjanus_rtmp.la
+plugin_LTLIBRARIES += plugins/libjanus_rtmp.lai
 plugins_libjanus_rtmp_la_SOURCES = plugins/janus_rtmp.c 
-plugins_libjanus_rtmp_la_CFLAGS = $(plugins_cflags) $(RTMP_CFLAGS) 
-plugins_libjanus_rtmp_la_LDFLAGS = $(plugins_ldflags) $(RTMP_LDFLAGS)
-plugins_libjanus_rtmp_la_LIBADD = $(plugins_libadd) $(RTMP_LIBS)
+plugins_libjanus_rtmp_la_CFLAGS = $(plugins_cflags)
+plugins_libjanus_rtmp_la_LDFLAGS = $(plugins_ldflags)
+plugins_libjanus_rtmp_la_LIBADD = $(plugins_libadd)
 conf_DATA += ../conf/janus.plugin.rtmp.jfg.sample
 EXTRA_DIST += ../conf/janus.plugin.rtmp.jfg.sample
 endif
