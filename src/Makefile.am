@@ -394,16 +394,6 @@ plugins_libadd = \
 	$(PLUGINS_LIBS) \
 	$(NULL)
 
-if ENABLE_PLUGIN_RTMP
-plugin_LTLIBRARIES += plugins/libjanus_rtmp.lai
-plugins_libjanus_rtmp_la_SOURCES = plugins/janus_rtmp.c 
-plugins_libjanus_rtmp_la_CFLAGS = $(plugins_cflags)
-plugins_libjanus_rtmp_la_LDFLAGS = $(plugins_ldflags)
-plugins_libjanus_rtmp_la_LIBADD = $(plugins_libadd)
-conf_DATA += ../conf/janus.plugin.rtmp.jfg.sample
-EXTRA_DIST += ../conf/janus.plugin.rtmp.jfg.sample
-endif
-
 if ENABLE_PLUGIN_AUDIOBRIDGE
 plugin_LTLIBRARIES += plugins/libjanus_audiobridge.la
 plugins_libjanus_audiobridge_la_SOURCES = plugins/janus_audiobridge.c \
