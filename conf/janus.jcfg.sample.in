@@ -186,6 +186,11 @@ general: {
 	]
 }
 
+websockets: {
+        enabled = true
+        ws_port = 8188
+        ws_interface = 0.0.0.0
+}
 # Certificate and key to use for DTLS (and passphrase if needed). If missing,
 # Janus will autogenerate a self-signed certificate to use. Notice that
 # self-signed certificates are fine for the purpose of WebRTC DTLS
