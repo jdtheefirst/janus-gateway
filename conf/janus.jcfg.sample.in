@@ -187,10 +187,14 @@ general: {
 }
 
 websockets: {
-        enabled = true
-        ws_port = 8188
-        ws_interface = 0.0.0.0
+    enabled = true
+    ws_port = 8188            # This is for ws:// connections, but you'll likely not use this anymore with HTTPS
+    ws_interface = 0.0.0.0    # Listen on all interfaces for ws:// (might not be needed once you switch to wss://)
+    
+    wss_port = 8188           # This is for wss:// (secure WebSocket) connections, which you want to use
+    wss_interface = 0.0.0.0   # Listen on all interfaces for wss://
 }
+
 # Certificate and key to use for DTLS (and passphrase if needed). If missing,
 # Janus will autogenerate a self-signed certificate to use. Notice that
 # self-signed certificates are fine for the purpose of WebRTC DTLS
@@ -204,13 +208,13 @@ websockets: {
 # Finally, by default NIST P-256 certificates are generated (see #1997),
 # but RSA generation is still supported if you set 'rsa_private_key' to 'true'.
 certificates: {
-	#cert_pem = "/path/to/certificate.pem"
-	#cert_key = "/path/to/key.pem"
-	#cert_pwd = "secretpassphrase"
-	#dtls_accept_selfsigned = false
-	#dtls_ciphers = "your-desired-openssl-ciphers"
-	#rsa_private_key = false
+  cert_pem = "/usr/local/etc/certificates/fullchain.pem"
+  cert_key = "/usr/local/etc/certificates/privkey.pem"
+  dtls_accept_selfsigned = false
+  dtls_ciphers = "DEFAULT:!NULL:!aNULL:!SHA256:!SHA384:!aECDH:!AESGCM+AES256:!aPSK"
+  rsa_private_key = false
 }
+
 
 # Media-related stuff: you can configure whether if you want to enable IPv6
 # support (and link-local IPs), the minimum size of the NACK queue (in ms,
